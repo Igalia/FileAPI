@@ -1482,7 +1482,7 @@ generate a new blob URL</dfn>, run the following steps:
 
 1. Let |result| be the empty string.
 1. Append the string "`blob:`" to |result|.
-1. Let |settings| be the [=current settings object=]
+1. Let |settings| be the [=current principal settings object=]
 1. Let |origin| be |settings|'s [=environment settings object/origin=].
 1. Let |serialized| be the <a lt="ASCII serialization of an origin">ASCII serialization</a> of |origin|.
 1. If |serialized| is "`null`", set it to an implementation-defined value.
@@ -1505,7 +1505,7 @@ run the following steps:
 
 1. Let |store| be the user agent's [=blob URL store=].
 1. Let |url| be the result of [=generating a new blob URL=].
-1. Let |entry| be a new [=blob URL entry=] consisting of |object| and the [=current settings object=].
+1. Let |entry| be a new [=blob URL entry=] consisting of |object| and the [=current principal settings object=].
 1. [=map/Set=] |store|[|url|] to |entry|.
 1. Return |url|.
 
@@ -1588,7 +1588,7 @@ The <dfn method for=URL id="dfn-revokeObjectURL">revokeObjectURL(|url|)</dfn> st
 1. Let |url record| be the result of [=URL parser|parsing=] |url|.
 1. If |url record|'s [=url/scheme=] is not "`blob`", return.
 1. Let |origin| be the [=url/origin=] of |url record|.
-1. Let |settings| be the [=current settings object=].
+1. Let |settings| be the [=current principal settings object=].
 1. If |origin| is not [=same origin=] with |settings|'s [=environment settings object/origin=], return.
 1. [=Remove an entry from the Blob URL Store=] for |url|.
 
